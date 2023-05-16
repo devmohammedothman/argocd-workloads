@@ -1,0 +1,8 @@
+labels:
+  env: dev
+  team: backend-team
+spec:
+  env:
+  ingress:
+    host:
+    type: alb
