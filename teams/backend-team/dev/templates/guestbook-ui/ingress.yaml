@@ -1,11 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: riker-ingress
+  name: backend-team-ingress
   # namespace is specified as namespace destination in env/{dev,test,prod}/team-riker.yaml
   labels:
     app: guestbook-ui
     {{- toYaml .Values.labels | nindent 4 }}
+  finalizers: null
+  # - resources-finalizer.backend-team-ingress.argoproj.io
   annotations:
 {{ if eq .Values.spec.ingress.type "nginx" }}
     kubernetes.io/ingress.class: "nginx"
